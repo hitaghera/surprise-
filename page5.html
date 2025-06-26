@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Sujal</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Nunito&display=swap" rel="stylesheet">
+
+  <!-- Confetti JS -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to right top, #fbeec1, #fbd2d2, #e0c3fc);
+      color: #3b3b3b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: #4a2c2a;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 1.2em;
+      line-height: 1.6;
+      padding: 0 20px;
+      color: #444;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    .confetti-btn, .next-btn {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 25px;
+      background: #ffcccc;
+      color: #4a2c2a;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .confetti-btn:hover,
+    .next-btn:hover {
+      background: #ffe2e2;
+    }
+
+    .floating-confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .next-btn {
+      background-color: #f5c8bf;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1><!-- Your Heading Here --></h1>
+  <p><!-- Your Message or Paragraph Here --></p>
+
+  <div class="buttons">
+    <button class="confetti-btn" onclick="party()">🎉 Party Time</button>
+    <button class="confetti-btn" onclick="party()">🥳 Blast Again</button>
+    <button class="confetti-btn" onclick="party()">🎈 Sujal Ni Entry</button>
+    <button class="confetti-btn" onclick="party()">💥 Boom</button>
+  </div>
+
+  <!-- Next Page Button -->
+  <a href="page5.html">
+    <button class="next-btn">Next ➡️</button>
+  </a>
+
+  <canvas class="floating-confetti"></canvas>
+
+  <script>
+    // Floating confetti
+    const canvas = document.querySelector('.floating-confetti');
+    const confettiSettings = { target: canvas, max: 120, size: 1.2, animate: true, props: ['circle', 'square'], clock: 25 };
+    confetti.create(canvas, confettiSettings)();
+
+    // Confetti blast function
+    function party() {
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+
+</body>
+</html>
