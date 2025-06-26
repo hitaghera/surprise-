@@ -3,109 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Sujal</title>
+  <title>Birthday Magic</title>
 
-  <!-- Fancy font for the glitter text -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
       font-family: 'Pacifico', cursive;
-      background: url('images/page3bg.png') no-repeat center center fixed;
+      background: url('images/file_000000002120623081894ac20675b646.png') no-repeat center center fixed;
       background-size: cover;
       position: relative;
-      color: white;
+      color: #fff;
     }
 
-    .glow-text {
+    .centered-text {
       position: absolute;
-      top: 10%;
-      left: 10%;
-      font-size: 3rem;
-      line-height: 1.2;
-      text-shadow: 
-        0 0 10px #fff, 
-        0 0 20px #ff00cc, 
-        0 0 30px #ff00cc,
-        0 0 40px #ff00cc,
-        0 0 50px #ff66ff,
-        0 0 75px #ff66ff;
-      animation: glitter 2s infinite alternate;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff00cc, 0 0 30px #ff66ff;
     }
 
-    @keyframes glitter {
-      0% {
-        text-shadow: 0 0 5px #fff, 0 0 10px #f0f, 0 0 15px #f0f;
-      }
-      100% {
-        text-shadow: 0 0 20px #fff, 0 0 40px #f0f, 0 0 60px #f0f;
-      }
+    .centered-text h1 {
+      font-size: 3.5rem;
+      margin: 10px 0;
+      animation: glow 2s infinite alternate;
     }
 
+    .centered-text h2 {
+      font-size: 2rem;
+      margin: 10px 0;
+      color: #ffd700;
+      animation: glowHindi 3s infinite alternate;
+    }
+
+    .centered-text h3 {
+      font-size: 2.5rem;
+      margin: 10px 0;
+      color: #00ffff;
+      animation: glow27 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #fff, 0 0 20px #f0f; }
+      100% { text-shadow: 0 0 20px #fff, 0 0 40px #f0f; }
+    }
+
+    @keyframes glowHindi {
+      0% { text-shadow: 0 0 5px #fff2cc, 0 0 10px #ffa; }
+      100% { text-shadow: 0 0 15px #ffe, 0 0 30px #ffc; }
+    }
+
+    @keyframes glow27 {
+      0% { text-shadow: 0 0 10px #cfc, 0 0 20px #0ff; }
+      100% { text-shadow: 0 0 20px #cff, 0 0 40px #0ff; }
+    }
+
+    /* Optional glitter roses overlay */
     .rose-glow {
       position: absolute;
-      bottom: 5%;
-      left: 5%;
-      width: 90%;
+      bottom: 0;
+      width: 100%;
       height: auto;
-      box-shadow: 0 0 20px rgba(255, 0, 128, 0.6), 0 0 40px rgba(255, 100, 200, 0.5);
-      animation: pulse 3s infinite;
+      pointer-events: none;
+      opacity: 0.85;
+      animation: pulse 4s infinite ease-in-out;
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.4); }
-      50% { box-shadow: 0 0 25px rgba(255, 0, 128, 0.8); }
-      100% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.4); }
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
     }
 
+    /* Floating particles */
     .particle {
       position: absolute;
-      width: 15px;
-      height: 15px;
-      background: radial-gradient(circle, #fff, transparent);
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      animation: fly 5s linear infinite;
-      opacity: 0.8;
+      background: radial-gradient(circle, #fff, transparent);
+      opacity: 0.2;
+      animation: floatAround 10s infinite ease-in-out;
     }
 
-    @keyframes fly {
+    @keyframes floatAround {
       0% {
         transform: translate(0, 0) scale(1);
-        opacity: 1;
+        opacity: 0.2;
+      }
+      25% {
+        transform: translate(-50px, 80px) scale(1.1);
+      }
+      50% {
+        transform: translate(60px, -40px) scale(0.9);
+      }
+      75% {
+        transform: translate(-30px, -60px) scale(1.2);
       }
       100% {
-        transform: translate(300px, -500px) scale(1.5);
-        opacity: 0;
+        transform: translate(0, 0) scale(1);
+        opacity: 0.2;
       }
+    }
+
+    /* Button to Page 4 */
+    .next-btn {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 40px;
+      background-color: #ff4d88;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff4d88, 0 0 30px #ff99cc;
+      cursor: pointer;
+      animation: btnPulse 2s infinite;
+    }
+
+    @keyframes btnPulse {
+      0% { box-shadow: 0 0 10px #ff4d88; }
+      50% { box-shadow: 0 0 30px #ff99cc; }
+      100% { box-shadow: 0 0 10px #ff4d88; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Glittering Text Overlay -->
-  <div class="glow-text">
-    Happy<br>Birthday<br>Sujal
+  <div class="centered-text">
+    <h1>Happy Birthday Sujal</h1>
+    <h2>🎉 जन्मदिन की शुभकामनाएं 🎉</h2>
+    <h3>27 June</h3>
   </div>
 
-  <!-- Optional rose sparkle border (could be used with transparent rose layer) -->
-  <!-- <img src="images/roses.png" class="rose-glow" /> -->
+  <!-- Optional glowing rose overlay -->
+  <img src="images/roses.png" alt="Glowing Roses" class="rose-glow" />
 
-  <!-- Floating particles (flower petals or bubbles) -->
+  <!-- Particles generator -->
   <script>
-    for (let i = 0; i < 50; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = (window.innerWidth / 2) + 'px';
-      particle.style.top = (window.innerHeight / 2) + 'px';
-      particle.style.animationDelay = (Math.random() * 5) + 's';
-      particle.style.background = `radial-gradient(circle, hsl(${Math.random() * 360}, 100%, 80%), transparent)`;
-      document.body.appendChild(particle);
+    const count = 40;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = '50%';
+      p.style.top = '50%';
+      p.style.animationDelay = `${Math.random() * 5}s`;
+      p.style.transform = `translate(${Math.random()*200-100}px, ${Math.random()*200-100}px) scale(${Math.random()+0.5})`;
+      document.body.appendChild(p);
     }
   </script>
+
+  <!-- Next page button -->
+  <button class="next-btn" onclick="window.location.href='page4.html'">Start Final Madness →</button>
 
 </body>
 </html>
