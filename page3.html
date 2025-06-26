@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Sujal</title>
+
+  <!-- Fancy font for the glitter text -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Pacifico', cursive;
+      background: url('images/page3bg.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      color: white;
+    }
+
+    .glow-text {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      font-size: 3rem;
+      line-height: 1.2;
+      text-shadow: 
+        0 0 10px #fff, 
+        0 0 20px #ff00cc, 
+        0 0 30px #ff00cc,
+        0 0 40px #ff00cc,
+        0 0 50px #ff66ff,
+        0 0 75px #ff66ff;
+      animation: glitter 2s infinite alternate;
+    }
+
+    @keyframes glitter {
+      0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #f0f, 0 0 15px #f0f;
+      }
+      100% {
+        text-shadow: 0 0 20px #fff, 0 0 40px #f0f, 0 0 60px #f0f;
+      }
+    }
+
+    .rose-glow {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      width: 90%;
+      height: auto;
+      box-shadow: 0 0 20px rgba(255, 0, 128, 0.6), 0 0 40px rgba(255, 100, 200, 0.5);
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.4); }
+      50% { box-shadow: 0 0 25px rgba(255, 0, 128, 0.8); }
+      100% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.4); }
+    }
+
+    .particle {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: radial-gradient(circle, #fff, transparent);
+      border-radius: 50%;
+      animation: fly 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(300px, -500px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Glittering Text Overlay -->
+  <div class="glow-text">
+    Happy<br>Birthday<br>Sujal
+  </div>
+
+  <!-- Optional rose sparkle border (could be used with transparent rose layer) -->
+  <!-- <img src="images/roses.png" class="rose-glow" /> -->
+
+  <!-- Floating particles (flower petals or bubbles) -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = (window.innerWidth / 2) + 'px';
+      particle.style.top = (window.innerHeight / 2) + 'px';
+      particle.style.animationDelay = (Math.random() * 5) + 's';
+      particle.style.background = `radial-gradient(circle, hsl(${Math.random() * 360}, 100%, 80%), transparent)`;
+      document.body.appendChild(particle);
+    }
+  </script>
+
+</body>
+</html>
