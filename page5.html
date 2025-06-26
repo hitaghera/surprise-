@@ -12,27 +12,32 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Nunito', sans-serif;
       background: linear-gradient(to right top, #fbeec1, #fbd2d2, #e0c3fc);
       color: #3b3b3b;
       min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      text-align: center;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      justify-content: flex-start;
       position: relative;
-      text-align: center;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3em;
       color: #4a2c2a;
-      margin-bottom: 20px;
+      margin: 40px 20px 20px;
     }
 
     p {
@@ -41,10 +46,11 @@
       line-height: 1.6;
       padding: 0 20px;
       color: #444;
+      margin-bottom: 40px;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-bottom: 40px;
     }
 
     .confetti-btn, .next-btn {
@@ -66,7 +72,7 @@
     }
 
     .floating-confetti {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -77,47 +83,42 @@
 
     .next-btn {
       background-color: #f5c8bf;
-      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <h1>What do you want for your Birthday gift ?<!-- Your Heading Here --></h1>
-  <p>A Flute ? - so I can listen it and also grab it from you<br>
+  <h1>What do you want for your Birthday gift?</h1>
 
-A mic 🎤 so you can sing everyday and send me your recordings<br>
+  <p>
+    A Flute? — so I can listen and also grab it from you.<br><br>
+    A mic 🎤 so you can sing everyday and send me your recordings.<br><br>
+    Or Phone recharge? So you can text me by yourself at least once a year.<br><br>
+    Or Alarm? Must needed thing of your life.<br><br>
+    Spectacles or glasses? So you can see my efforts.<br><br>
+    A dictionary? So you can learn new words like 'THANK YOU' or 'SORRY'.<br><br>
+    A calculator? So you can calculate how valuable am I in your life.<br><br><br>
 
-Or Phone recharge? So you can text me by yourself at least once a year<br>
+    Wait...<br><br>
 
-Or Alarm Must needed thing of your life.<br>
+    *Why would you even need a gift*... *when you already have Me*?<br><br>
 
-Spaces or glasses? So you can see my efforts.<br>
+    I mean seriously — I'm cool, smart, handsome, caring... basically the full package. 💁‍♂️<br><br>
 
-A dictionary?  So you can learn new words like 'THANK YOU' or 'SORRY'<br>
+    Having a best friend like me is the real present.<br>
+    Not everyone is blessed with this level of awesomeness. You're lucky — and I hope you know it 😌<br><br>
 
-A calculator?  So you can calculate how valuable am I in your life <br>
-<br><br>
-Wait..<br>
-<br><br>
-*Why would you even need a gift*... *when you already have Me*<br>
-<br<br>
-I mean seriously—I'm cool, smart, handsome, caring... basically the full package. 💁‍♂️ <br>
+    Not everyone deserves my energy... but YOU do. So be grateful, show some respect, and maybe even build a temple in my name. Just saying 😏<br><br>
 
-Having a best friend like me is the real present.<br>
-Not everyone is blessed with this level of awesomeness. You're lucky—and I hope you know it 😌 <br>
+    Also... I just made an entire website for your birthday during exams. WHO else is doing that for you? <br><br>
 
-Not everyone deserves my energy... but YOU do. So be grateful, show some respect, and maybe even build a temple in my name. Just saying 😏<br>
-
-Also... I just made an entire website for your birthday in this exam. WHO else is doing that for you? <br>
-<br><br>
-(Just for fun, only backchodi !
-Don’t take it too seriously... ChatGPT helped me for this)<!-- Your Message or Paragraph Here --></p>
+    (Just for fun, only backchodi! Don’t take it too seriously... ChatGPT helped me for this)
+  </p>
 
   <div class="buttons">
     <button class="confetti-btn" onclick="party()">🎉 Party Time</button>
     <button class="confetti-btn" onclick="party()">🥳 Blast Again</button>
-    <button class="confetti-btn" onclick="party()">🎈 Boom Boom </button>
+    <button class="confetti-btn" onclick="party()">🎈 Boom Boom</button>
     <button class="confetti-btn" onclick="party()">💥 Boom</button>
   </div>
 
@@ -131,10 +132,17 @@ Don’t take it too seriously... ChatGPT helped me for this)<!-- Your Message or
   <script>
     // Floating confetti
     const canvas = document.querySelector('.floating-confetti');
-    const confettiSettings = { target: canvas, max: 120, size: 1.2, animate: true, props: ['circle', 'square'], clock: 25 };
+    const confettiSettings = {
+      target: canvas,
+      max: 120,
+      size: 1.2,
+      animate: true,
+      props: ['circle', 'square'],
+      clock: 25
+    };
     confetti.create(canvas, confettiSettings)();
 
-    // Confetti blast function
+    // Button-triggered confetti
     function party() {
       confetti({
         particleCount: 120,
